@@ -4,7 +4,7 @@ This module defines a function that prints a full name.
 """
 
 
-def say_my_name(first_name=None, last_name=""):
+def say_my_name(first_name, last_name=""):
     """
     Prints: My name is <first_name> <last_name>
     Raises TypeError if inputs are not strings.
