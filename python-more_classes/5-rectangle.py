@@ -1,6 +1,10 @@
 #!/usr/bin/python3
+"""Defines a Rectangle class that prints a goodbye message when deleted.
+"""
+
+
 class Rectangle:
-    """Defines a rectangle with width and height, and tracks deletion."""
+    """Represents a rectangle and prints a message when deleted."""
 
     def __init__(self, width=0, height=0):
         self.width = width
