@@ -4,3 +4,23 @@
 >>> my_list.append(2)
 >>> my_list.print_sorted()
 [1, 2, 3]
+
+>>> negative_list = __import__('1-my_list').MyList()
+>>> negative_list.append(-3)
+>>> negative_list.append(-1)
+>>> negative_list.append(-2)
+>>> negative_list.print_sorted()
+[-3, -2, -1]
+
+>>> empty_list = __import__('1-my_list').MyList()
+>>> empty_list.print_sorted()
+[]
+
+>>> check_list = __import__('1-my_list').MyList()
+>>> check_list.append(5)
+>>> check_list.append(2)
+>>> check_list.append(9)
+>>> check_list.print_sorted()
+[2, 5, 9]
+>>> check_list
+[5, 2, 9]
