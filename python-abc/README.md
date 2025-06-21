@@ -1,5 +1,29 @@
-## Python OOP - Abstract Classes, Interfaces, and Subclassing
+# Python OOP - Abstract Classes and Inheritance
 
-This section of the program focuses on working with abstract classes and Python’s object-oriented capabilities. Each file in this folder puts into practice how to define class blueprints using abstract base classes, making sure that all subclasses follow the rules you set.
+This project covers advanced Python OOP features: abstract base classes, duck typing, method overriding, mixins, and multiple inheritance. Each task explores a core concept through short, functional class examples.
 
-The tasks begin with building simple inheritance trees, like an abstract Animal class with Dog and Cat subclasses, and grow into more dynamic structures like shape interfaces using duck typing. Later tasks involve customizing Python’s built-in types -f.
+## Tasks
+
+- **Task 0: Abstract Animal**
+  Created an abstract `Animal` class with a `sound()` method. Subclasses `Dog` and `Cat` implement the method.
+
+- **Task 1: Duck Typing**
+  Defined `Shape` as an abstract base class, and created `Circle` and `Rectangle` classes that implement `area()` and `perimeter()`.
+
+- **Task 2: VerboseList**
+  Extended Python’s `list` to print messages on `append`, `extend`, `remove`, and `pop`.
+
+- **Task 3: CountedIterator**
+  Built a custom iterator that tracks how many items were returned during iteration.
+
+- **Task 4: FlyingFish**
+  Used multiple inheritance with `Fish` and `Bird`, and created a `FlyingFish` that overrides methods from both.
+
+- **Task 5: Dragon and Mixins**
+  Created two mixins (`SwimMixin`, `FlyMixin`) and used them in a `Dragon` class that adds a `roar()` method.
+
+## How to Run
+
+```bash
+chmod +x main_*.py
+./main_02_verboselist.py
