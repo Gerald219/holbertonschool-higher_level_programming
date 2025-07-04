@@ -17,5 +17,13 @@ def get_usernames():
 def status():
     return "OK"
 
+@app.route("/users/<username>")
+def get_user(username):
+    user = users.get(username)
+    if user:
+        return jsonify(user)
+    else:
+        return jsonify({"error": "User not found"}), 404
+
 if __name__ == "__main__":
     app.run()
