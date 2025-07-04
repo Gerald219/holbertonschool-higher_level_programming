@@ -6,7 +6,7 @@ def fetch_and_print_posts():
     """Get posts and print their titles"""
     url = "https://jsonplaceholder.typicode.com/posts"
     response = requests.get(url)
-    print("Response Code:", response.status_code)
+    print("Status Code:", response.status_code)
     if response.status_code == 200:
         data = response.json()
         for post in data:
