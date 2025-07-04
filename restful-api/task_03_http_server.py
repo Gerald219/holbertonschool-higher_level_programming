@@ -14,6 +14,11 @@ class SimpleHandler(BaseHTTPRequestHandler):
             self.end_headers()
             data = b'{"name": "John", "age": 30, "city": "New York"}'
             self.wfile.write(data)
+        elif self.path == "/status":
+            self.send_response(200)
+            self.send_header("Content-type", "text/plain")
+            self.end_headers()
+            self.wfile.write(b"OK")
         else:
             self.send_response(404)
             self.send_header("Content-type", "text/plain")
