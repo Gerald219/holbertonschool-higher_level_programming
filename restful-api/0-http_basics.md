@@ -33,3 +33,18 @@ The server writes back with:
 - **Headers:** More notes about what’s inside (like “this is HTML”).
 - **Body:** The actual thing you asked for (like the webpage or some data).
 
+# Common HTTP Methods
+
+- **GET:** Get data, example-> opening a webpage.
+- **POST:** Send new data, push data, uploading a form.
+- **PUT:** Change existing data, example-> editing data of a profile.
+- **DELETE:** Remove data.
+
+# Common HTTP Status Codes
+
+- **200 OK:** Everything worked.
+- **201 Created:** Something was created.
+- **400 Bad Request:** The request was invalid.
+- **404 Not Found:** The item was not found.
+- **500 Internal Server Error:** The server had an error.
+
