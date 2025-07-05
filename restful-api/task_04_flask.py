@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 from flask import Flask, jsonify, request
 from flask_httpauth import HTTPBasicAuth
+from flask_jwt_extended import JWTManager, create_access_token
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
@@ -25,7 +26,18 @@ def verify_password(username, password):
 def basic_protected():
     return "Basic Auth: Access Granted"
 
-users = {}
+users = {
+    "user1": {
+        "username": "user1",
+        "password": generate_password_hash("password123"),
+        "role": "user"
+    },
+    "admin1": {
+        "username": "admin1",
+        "password": generate_password_hash("adminpassword"),
+        "role": "admin"
+    }
+}
 
 @app.route("/")
 def home():
