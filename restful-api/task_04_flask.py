@@ -1,13 +1,35 @@
 #!/usr/bin/python3
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
+from flask_httpauth import HTTPBasicAuth
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
+
+app.config["JWT_SECRET_KEY"] = "super-secret-key"
+jwt = JWTManager(app)
+
+auth = HTTPBasicAuth()
+
+user_credentials = {
+    "user1": generate_password_hash("password123"),
+    "admin1": generate_password_hash("adminpassword")
+}
+
+@auth.verify_password
+def verify_password(username, password):
+    if username in user_credentials and check_password_hash(user_credentials.get(username), password):
+        return username
+
+@app.route("/basic-protected")
+@auth.login_required
+def basic_protected():
+    return "Basic Auth: Access Granted"
+
+users = {}
 
 @app.route("/")
 def home():
     return "Welcome to the Flask API!"
-# In-memory users dictionary (empty at start)
-users = {}
 
 @app.route("/data")
 def get_usernames():
@@ -25,23 +47,18 @@ def get_user(username):
     else:
         return jsonify({"error": "User not found"}), 404
 
-from flask import request
-
 @app.route("/add_user", methods=["POST"])
 def add_user():
     data = request.get_json()
     username = data.get("username")
-
     if not username:
         return jsonify({"error": "Username is required"}), 400
-
     users[username] = {
         "username": username,
         "name": data.get("name"),
         "age": data.get("age"),
         "city": data.get("city")
     }
-
     return jsonify({
         "message": "User added",
         "user": users[username]
