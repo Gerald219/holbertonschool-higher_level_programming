@@ -35,6 +35,7 @@ def verify_password(username, password):
 @auth.login_required
 def basic_protected():
     return "Basic Auth: Access Granted"
+
 @app.route("/login", methods=["POST"])
 def login():
     data = request.get_json()
@@ -45,8 +46,8 @@ def login():
     if not user or not check_password_hash(user["password"], password):
         return jsonify({"error": "Invalid credentials"}), 401
 
-    access_token = create_access_token(identity={"username": username, "role": user["role"]})
-    return jsonify(access_token=access_token)
+    token = create_access_token(identity={"username": username, "role": user["role"]})
+    return jsonify(access_token=token)
 
 @app.route("/jwt-protected")
 @jwt_required()
@@ -83,5 +84,5 @@ def handle_fresh_token_required(jwt_header, jwt_payload):
     return jsonify({"error": "Fresh token required"}), 401
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0", port=5000, debug=False)
 
