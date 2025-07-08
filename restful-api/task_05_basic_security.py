@@ -15,12 +15,12 @@ auth = HTTPBasicAuth()
 users = {
     "user1": {
         "username": "user1",
-        "password": generate_password_hash("Letmein123"),
+        "password": generate_password_hash("password"),
         "role": "user"
     },
     "admin1": {
         "username": "admin1",
-        "password": generate_password_hash("Letmein123"),
+        "password": generate_password_hash("password"),
         "role": "admin"
     }
 }
@@ -52,8 +52,7 @@ def login():
 @app.route("/jwt-protected")
 @jwt_required()
 def jwt_protected():
-    identity = get_jwt_identity()
-    return jsonify(message="JWT Auth: Access Granted", user=identity)
+    return jsonify(message="JWT Auth: Access Granted")
 
 @app.route("/admin-only")
 @jwt_required()
