@@ -82,3 +82,6 @@ def handle_revoked_token(jwt_header, jwt_payload):
 def handle_fresh_token_required(jwt_header, jwt_payload):
     return jsonify({"error": "Fresh token required"}), 401
 
+if __name__ == "__main__":
+    app.run()
+
