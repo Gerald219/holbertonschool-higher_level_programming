@@ -62,3 +62,23 @@ def admin_only():
         return jsonify({"error": "Admin access required"}), 403
     return jsonify(message="Admin Access: Granted")
 
+@jwt.unauthorized_loader
+def handle_missing_token(error):
+    return jsonify({"error": "Missing or invalid token"}), 401
+
+@jwt.invalid_token_loader
+def handle_invalid_token(error):
+    return jsonify({"error": "Invalid token"}), 401
+
+@jwt.expired_token_loader
+def handle_expired_token(jwt_header, jwt_payload):
+    return jsonify({"error": "Token has expired"}), 401
+
+@jwt.revoked_token_loader
+def handle_revoked_token(jwt_header, jwt_payload):
+    return jsonify({"error": "Token has been revoked"}), 401
+
+@jwt.needs_fresh_token_loader
+def handle_fresh_token_required(jwt_header, jwt_payload):
+    return jsonify({"error": "Fresh token required"}), 401
+
