@@ -1,2 +1,2 @@
 -- shows the highest score from second_table
-SELECT MAX(SCORE) FROM SECOND_TABLE;
+SELECT MAX(score) AS max_score FROM second_table;
