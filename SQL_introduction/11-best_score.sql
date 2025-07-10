@@ -1,2 +1,4 @@
--- shows the highest score from second_table
-SELECT MAX(score) AS max_score FROM second_table;
+-- shows only scores 10 and up, sorted from highest to lowest
+SELECT score, name FROM second_table
+WHERE score >= 10
+ORDER BY score DESC;
