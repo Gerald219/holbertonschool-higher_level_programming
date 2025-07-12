@@ -1,5 +1,5 @@
--- Show score and name of people with score 10 or higher
-SELECT SCORE, NAME
+-- List all records with a name and a score from the table second_table
+SELECT score, name
 FROM second_table
-WHERE SCORE >= 10
-ORDER BY SCORE DESC;
+WHERE name IS NOT NULL AND name != ''
+ORDER BY score DESC;
