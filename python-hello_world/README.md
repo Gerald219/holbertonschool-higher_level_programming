@@ -1,1 +1,1 @@
-HERE NOW!
+Assignment Explanations and definitions:
