@@ -1,19 +1,19 @@
-#!/usr/bin/python3  # tells computer "run this in Python"
+#!/usr/bin/python3
 
-from calculator_1 import add, sub, mul, div  # import math tools
+from calculator_1 import add, sub, mul, div
 
-if __name__ == "__main__":  # run only if main file
-    a = 10  # first number
-    b = 5   # second number
+if __name__ == "__main__":
+    a = 10
+    b = 5
 
-    # addition with add, format, print
+    # addition
     print("{} + {} = {}".format(a, b, add(a, b)))
 
-    # subtraction with sub, format, print
+    # subtraction
     print("{} - {} = {}".format(a, b, sub(a, b)))
 
-    # multiplication with mul, format, print
+    # multiplication
     print("{} * {} = {}".format(a, b, mul(a, b)))
 
-    # division with div, format, print
+    # division
     print("{} / {} = {}".format(a, b, div(a, b)))
