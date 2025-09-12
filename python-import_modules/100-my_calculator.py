@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
-from calculator_1 import add, sub, mul, div  # import python math functions
-import sys  # toolbox for argv and exit
+import sys
+from calculator_1 import add, sub, mul, div
+
 
 if __name__ == "__main__":  # only run if this is the main file
     if len(sys.argv) != 4:  # must give exactly 3 arguments
