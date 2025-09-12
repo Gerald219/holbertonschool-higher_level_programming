@@ -4,13 +4,13 @@ from calculator_1 import add, sub, mul, div
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:  # must give exactly 3 arguments
+    if len(argv) != 4:  # must give exactly 3 arguments
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
-        sys.exit(1)  # exit if code wrong
+        raise SystemExit(1)  # exit if code wrong
 
-    a = int(sys.argv[1])  # first number
-    operator = sys.argv[2]  # the math symbol
-    b = int(sys.argv[3])  # second number
+    a = int(argv[1])  # first number
+    operator = argv[2]  # the math symbol
+    b = int(argv[3])  # second number
 
     if operator == "+":  # check for addition
         print("{} + {} = {}".format(a, b, add(a, b)))
@@ -22,4 +22,4 @@ if __name__ == "__main__":
         print("{} / {} = {}".format(a, b, div(a, b)))
     else:  # anything else is not allowed
         print("Unknown operator. Available operators: +, -, * and /")
-        sys.exit(1)  # exit with error code if wrong operator
+        raise SystemExit(1)  # exit with error code if wrong operator
