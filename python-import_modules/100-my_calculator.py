@@ -3,7 +3,7 @@ import sys
 from calculator_1 import add, sub, mul, div
 
 
-if __name__ == "__main__":  # only run if this is the main file
+if __name__ == "__main__":
     if len(sys.argv) != 4:  # must give exactly 3 arguments
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)  # exit if code wrong
