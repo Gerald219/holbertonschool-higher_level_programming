@@ -2,6 +2,7 @@
 
 """Square module with getter and setter for size."""
 
+
 class Square:  # make a Square class
     """Square with private size, validation, and area method."""
 
