@@ -1,8 +1,15 @@
 #!/usr/bin/python3
 
+"""This defines a Square class that manages size, position, and printing.
+
+The Square class includes validation for its size and position attributes, 
+a method to calculate its area, and a print method that respects both the 
+size and position by printing the square in the correct place on the screen.
+"""
+
 
 class Square:  # make a Square class
-    """size, position, area, and to print.""" 
+    """Square class that defines size, position, area, and printing behavior."""
 
     def __init__(self, size=0, position=(0, 0)):  # start square with size + position
         """Set up square with size and position."""
