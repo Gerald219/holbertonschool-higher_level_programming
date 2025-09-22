@@ -3,7 +3,7 @@
 
 
 class Rectangle:
-    """Defines a rectangle that can give size info, print itself, and be recreated."""
+    """Defines a rectangle that can give size info, print itself, recreated."""
 
     def __init__(self, width=0, height=0):
         self.width = width  # set width
