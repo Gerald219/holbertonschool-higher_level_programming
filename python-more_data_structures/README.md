@@ -109,23 +109,37 @@ Intro module on **sets**, **dictionaries**, and small functional tools:
 
 ---
 
-## Task Function Glossary
-Quick peek at the exact tools used across tasks:
+# Quick look at the tools used across tasks.
 
-- **Lists / Loops:** `for`, `append`, list literals `[]`
-- **Sets:** `set()`, `&` (intersection), `^` (symmetric difference)
-- **Dicts:** `.items()`, indexing `dict[key]`, `del`, `len(dict)`, `sorted(dict)`
-- **Math / Helpers:** `x * x` (square), `sum`, `max(..., key=...)`
-- **Map/Functional:** `map`, `lambda`, `list(map(...))`
-- **Strings / Roman:** `reversed(s)`, dict lookup `roman_map.get(ch, 0)`
+- Lists / Loops: for, append, list literals []
+  # for — iterate items one by one
+  # append — add to end of list
+  # [] — make a list [], [1, 2, 3]
 
----
+- Sets: set(), & (intersection), ^ symmetric difference
+  # set() — make a set of unique items
+  # A & B — items in both sets
+  # A ^ B — items in one set or the other, not both
 
-## Notes on style and execution
-- First line in every file: `#!/usr/bin/python3`
-- Make files executable: `chmod +x file.py`
-- Style check: `pycodestyle file.py`
-- Length check: `wc -l file.py` and `wc -L file.py` (longest line ≤ 79)
-- Some tasks enforce a **max 3 lines** file; keep comments in the README.
+- Dicts: .items(), dict[key], del, len(dict), sorted(dict)
+  # d.items() — loop (key, value) pairs
+  # d[key] — read/write value by key
+  # del d[key] — remove a pair
+  # len(d) — number of keys
+  # sorted(d) — list of keys in order
+
+- Math / Helpers: x * x (square), sum, max(..., key=...)
+  # x * x — square a number
+  # sum(iterable) — add everything up
+  # max(iterable, key=...) — pick “best” by a rule
+
+- Map / Functional: map, lambda, list(map(...))
+  # lambda x: x*2 — tiny one-line function
+  # map(func, items) — apply to each item
+  # list(map(...)) — turn map result into a list
+
+- Strings / Roman: reversed(s), roman_map.get(ch, 0)
+  # reversed(s) — walk a string from the end
+  # roman_map.get(ch, 0) — safe dict read; 0 if missing
 
 ---
