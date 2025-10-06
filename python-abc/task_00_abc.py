@@ -10,3 +10,16 @@ class Animal(ABC):
     def speak(self):
         """Abstract method to be implemented by subclasses."""
         pass
+        
+class Dog(Animal):
+    """Dog class inheriting from Animal."""
+    
+    def sound(self):
+        return "Bark! Bark! Woof! Woof!"
+    
+    class Cat(Animal):
+        """Cat class that inherits from Animal."""
+
+    def sound(self):
+        """Return the cat's sound."""
+        return "Meow Meau! shsh! Purr! Purr!"
