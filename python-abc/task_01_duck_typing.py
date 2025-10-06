@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Defines an abstract Shape class and its subclasses Circle and Rectangle, demonstrating duck typing."""
-
+"""
+Defines an abstract Shape class and its subclasses Circle and Rectangle,
+demonstrating duck typing.
+"""
 
 from abc import ABC, abstractmethod
-
 import math
 
 
@@ -35,6 +36,8 @@ class Circle(Shape):
     def perimeter(self):
         """Return the perimeter (circumference) of the circle."""
         return 2 * math.pi * self.radius
+
+
 class Rectangle(Shape):
     """Rectangle class that inherits from Shape."""
 
@@ -50,9 +53,9 @@ class Rectangle(Shape):
     def perimeter(self):
         """Return the perimeter of the rectangle."""
         return 2 * (self.width + self.height)
-    
+
+
 def shape_info(shape):
     """Print the area and perimeter of any shape that has those methods."""
     print("Area:", shape.area())
     print("Perimeter:", shape.perimeter())
-
