@@ -16,6 +16,11 @@ class VerboseList(list):
         super().extend(items)
         print(f"Extended the list with [{len(items)}] items.")
 
+    def remove(self, item):
+        """Remove an item from the list and print a notification."""
+        print(f"Removed [{item}] from the list.")
+        super().remove(item)
+        
     def pop(self, index=-1):
         """Pop an item (default: last) and print a notification."""
         item = self[index]  # look at what will be removed
