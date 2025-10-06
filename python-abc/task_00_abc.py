@@ -3,22 +3,26 @@
 
 from abc import ABC, abstractmethod
 
+
 class Animal(ABC):
-    """Abstract base class for animals.""" 
-    
+    """Abstract base class for animals."""
+
     @abstractmethod
-    def speak(self):
+    def sound(self):
         """Abstract method to be implemented by subclasses."""
         pass
-        
+
+
 class Dog(Animal):
     """Dog class inheriting from Animal."""
-    
+
     def sound(self):
+        """Return the dog's sound."""
         return "Bark! Bark! Woof! Woof!"
-    
-    class Cat(Animal):
-        """Cat class that inherits from Animal."""
+
+
+class Cat(Animal):
+    """Cat class that inherits from Animal."""
 
     def sound(self):
         """Return the cat's sound."""
