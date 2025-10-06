@@ -11,4 +11,8 @@ class VerboseList(list):
         super().append(item)
         print(f"Added [{item}] to the list.")
 
+    def extend(self, items):
+        """Extend the list and print how many items were added."""
+        super().extend(items)
+        print(f"Extended the list with [{len(items)}] items.")
 
