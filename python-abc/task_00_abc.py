@@ -18,12 +18,12 @@ class Dog(Animal):
 
     def sound(self):
         """Return the dog's sound."""
-        return "Bark! Bark! Woof! Woof!"
+        return "Bark"
 
 
 class Cat(Animal):
-    """Cat class that inherits from Animal."""
+    """Cat class inheriting from Animal."""
 
     def sound(self):
         """Return the cat's sound."""
-        return "Meow Meau! shsh! Purr! Purr!"
+        return "Meow"
