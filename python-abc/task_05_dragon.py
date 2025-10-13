@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-class SwimMixin:
+class SwimMixin:  # classes
     def swim(self):
         print("The creature swims!")
 
