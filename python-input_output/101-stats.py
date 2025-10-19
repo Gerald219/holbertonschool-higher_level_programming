@@ -1,33 +1,39 @@
 #!/usr/bin/python3
-"""reads lines from input and shows file size + code count"""
-import sys  # need this to read input
+"""Reads from stdin line by line and computes log metrics."""
+import sys
 
-total_size = 0  # keeps the total of all sizes added up
-status_counts = {}  # store how many times each code shows up
+# keep track of total file size and code counts
+total_size = 0
+status_counts = {}
+
+def print_stats():
+    """Print the current total and each code count."""
+    print("File size:", total_size)
+    for code in sorted(status_counts):
+        print(f"{code}: {status_counts[code]}")
 
 try:
-    # read line by line, i = line number
     for i, line in enumerate(sys.stdin, 1):
-        parts = line.split()  # break line into pieces (words etc)
-
-        # check if line has stuff we can read
+        parts = line.split()
         if len(parts) >= 2:
-            total_size += int(parts[-1])  # last part = file size, add it up
-            code = parts[-2]  # second to last part = status code
+            # last item = size, second to last = status code
+            try:
+                total_size += int(parts[-1])
+            except (ValueError, IndexError):
+                pass
 
-            # only count codes we care about
+            code = parts[-2]
             if code in ['200', '301', '400', '401', '403', '404', '405', '500']:
                 status_counts[code] = status_counts.get(code, 0) + 1
 
-        # print stuff every 10 lines
+        # print every 10 lines
         if i % 10 == 0:
-            print("File size:", total_size)
-            for c in sorted(status_counts):
-                print(f"{c}: {status_counts[c]}")
+            print_stats()
 
-# when ctrl + c, print one last time before exit
 except KeyboardInterrupt:
-    print("File size:", total_size)
-    for c in sorted(status_counts):
-        print(f"{c}: {status_counts[c]}")
-    raise  # let it quit for real
+    # on Ctrl + C, print before exiting
+    print_stats()
+    raise
+
+# print final stats at end
+print_stats()
