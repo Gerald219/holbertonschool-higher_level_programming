@@ -155,12 +155,6 @@ You’ll learn how to **open, read, write, append, and save data**, and how to c
 
 ---
 
-### 15) Advanced — optional exploration  
-**What it does:** Integrates all the concepts into more complex data manipulation and serialization.  
-- **Main idea:** Apply everything — read, write, append, JSON, classes, and error handling together.  
-
----
-
 ## Requirements
 
 - Python 3.8.5 on Ubuntu 20.04 LTS  
