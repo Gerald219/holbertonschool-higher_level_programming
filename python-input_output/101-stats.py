@@ -1,39 +1,51 @@
 #!/usr/bin/python3
 """Reads from stdin line by line and computes log metrics."""
-import sys
+import sys  # lets script read lines from standard input
 
-# keep track of total file size and code counts
-total_size = 0
-status_counts = {}
 
-def print_stats():
-    """Print the current total and each code count."""
+def print_stats(total_size, status_counts):
+    """Print current total and status code counts."""
     print("File size:", total_size)
+    # go through all saved status codes in order
     for code in sorted(status_counts):
         print(f"{code}: {status_counts[code]}")
 
-try:
-    for i, line in enumerate(sys.stdin, 1):
-        parts = line.split()
-        if len(parts) >= 2:
-            # last item = size, second to last = status code
-            try:
-                total_size += int(parts[-1])
-            except (ValueError, IndexError):
-                pass
 
-            code = parts[-2]
-            if code in ['200', '301', '400', '401', '403', '404', '405', '500']:
-                status_counts[code] = status_counts.get(code, 0) + 1
+# only runs if file is executed directly
+if __name__ == "__main__":
+    total_size = 0           # add up file sizes
+    status_counts = {}       # store counts for each code
+    line_count = 0           # track how many lines read
 
-        # print every 10 lines
-        if i % 10 == 0:
-            print_stats()
+    try:
+        # read every line coming into the program
+        for line in sys.stdin:
+            line_count += 1
+            parts = line.split()  # break line into words
 
-except KeyboardInterrupt:
-    # on Ctrl + C, print before exiting
-    print_stats()
-    raise
+            if len(parts) >= 2:
+                try:
+                    # add the last number (file size)
+                    total_size += int(parts[-1])
+                except (ValueError, IndexError):
+                    pass  # skip bad or missing numbers
 
-# print final stats at end
-print_stats()
+                # second to last piece is status code
+                code = parts[-2]
+                # only count valid codes
+                if code in ['200', '301', '400', '401',
+                            '403', '404', '405', '500']:
+                    # add +1 for that code each time seen
+                    status_counts[code] = status_counts.get(code, 0) + 1
+
+            # every 10 lines, print results
+            if line_count % 10 == 0:
+                print_stats(total_size, status_counts)
+
+    # if user stops program (Ctrl+C)
+    except KeyboardInterrupt:
+        print_stats(total_size, status_counts)
+        raise  # stop running completely
+
+    # final print when done
+    print_stats(total_size, status_counts)
