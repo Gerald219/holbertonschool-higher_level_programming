@@ -155,6 +155,7 @@ You’ll learn how to **open, read, write, append, and save data**, and how to c
 
 ---
 
+
 ## Requirements
 
 - Python 3.8.5 on Ubuntu 20.04 LTS  
