@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """serialization and deserialization using JSON in Python."""
 
-
 import json  # Import the JSON module
 
 
@@ -11,9 +10,8 @@ def serialize_and_save_to_file(data, filename):
     with open(filename, "w", encoding="utf-8") as f:
         # open file, write with w mode
         # using utf-8 to save letters and symbols correctly
-        json.dump(data, f, indent=2, ensure_ascii=False, sort_keys=True)
-        # dump data to file f, with indent of 2 spaces for readability
-        # ensure_ascii=False to allow non-ASCII characters
+        json.dump(data, f)
+        # dump data to file f as plain JSON text
 
 
 def load_and_deserialize(filename):
