@@ -15,6 +15,7 @@ def serialize_and_save_to_file(data, filename):
         # dump data to file f, with indent of 2 spaces for readability
         # ensure_ascii=False to allow non-ASCII characters
 
+
 def load_and_deserialize(filename):
     """reads the JSON file and deserializes the content back into object."""
     with open(filename, "r", encoding="utf-8") as f:
