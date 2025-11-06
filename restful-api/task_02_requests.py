@@ -16,8 +16,10 @@ def fetch_and_print_posts() -> bool:
     try:
         resp = requests.get(BASE_URL, timeout=10)
         print(f"Status Code: {resp.status_code}")
-        if not resp.ok:
+        
+        if not (200 <= getattr(resp, "status_code", 0) < 300):
             return False
+
 
         for post in resp.json():
             print(post.get("title"))
@@ -33,7 +35,7 @@ def fetch_and_save_posts(filename: str = "posts.csv") -> bool:
     """
     try:
         resp = requests.get(BASE_URL, timeout=10)
-        if not resp.ok:
+        if not (200 <= getattr(resp, "status_code", 0) < 300):
             return False
 
         posts = resp.json()
