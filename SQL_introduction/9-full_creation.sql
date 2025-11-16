@@ -1,11 +1,9 @@
--- create second_table and fill it with sample rows
-
-USE hbtn_0c_0;  -- work inside this database
+-- create second_table and insert sample rows
 
 CREATE TABLE IF NOT EXISTS second_table (
-    id INT,             -- id number for the row
-    name VARCHAR(256),  -- person name text
-    score INT           -- score value
+    id INT,
+    name VARCHAR(256),
+    score INT
 );
 
 INSERT INTO second_table (id, name, score) VALUES
