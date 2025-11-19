@@ -1,42 +1,29 @@
 #!/usr/bin/python3
-"""List all states from the database hbtn_0e_0_usa using MySQLdb."""
+"""List all states from hbtn_0e_0_usa with MySQLdb."""
 
-import sys
-import MySQLdb
-
-
-def list_states(user, password, db_name):
-    """Connect to MySQL and print all states ordered by id."""
-    conn = MySQLdb.connect(
-        host="localhost",
-        port=3306,
-        user=user,
-        passwd=password,
-        db=db_name
-    )  # open database link
-
-    cur = conn.cursor()  # helper for queries
-
-    query = "SELECT * FROM states ORDER BY id ASC"
-    # query text that asks for every state
-    cur.execute(query)
-
-    rows = cur.fetchall()
-    # store all rows from the result
-    for row in rows:
-        # one state with id and name
-        print(row)
-
-    # close tools for the database
-    cur.close()
-    conn.close()
+import MySQLdb  # driver that talks to mysql
+import sys      # read args from command line
 
 
 if __name__ == "__main__":
-    # read values from the terminal
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]  # here we keep the database name
+    # connect to the local mysql server
+    db = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=sys.argv[1],      # mysql user from args
+        passwd=sys.argv[2],    # mysql password
+        db=sys.argv[3]         # database name
+    )
 
-    # run the main helper with these values
-    list_states(username, password, database)
+    cur = db.cursor()          # query helper
+
+    # ask for all rows, sorted by id
+    sql = "SELECT * FROM states ORDER BY id ASC"
+    cur.execute(sql)
+
+    rows = cur.fetchall()      # all rows from the query
+    for row in rows:
+        print(row)             # each line is one tuple (id, name)
+
+    cur.close()                # close cursor
+    db.close()                 # close connection
